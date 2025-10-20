@@ -1,0 +1,63 @@
+/*
+Pallette Generator 
+
+Generates clr-10 → clr-100
+Base color stays in its natural tone position
+Outputs as CSS variables
+***********
+*/
+
+@use "./variables" as *;
+
+// Clamp helper (keeps lightness between 0–100)
+@function clamp-lightness($value) {
+  @if $value < 0 {
+    @return 0;
+  } @else if $value > 100 {
+    @return 100;
+  } @else {
+    @return $value;
+  }
+}
+
+// Generate 10-tone palette
+@function generate-palette($base-color) {
+  $colors: ();
+
+  // Extract HSL channels
+  $hue: hue($base-color);
+  $sat: saturation($base-color);
+  $light: lightness($base-color) / 1%; // make unitless
+
+  // Determine where the base color sits in 10 tones
+  $position: round((100 - $light) / 100 * 10);
+  $position: if($position < 1, 1, if($position > 10, 10, $position));
+
+  // Generate tones clr-10 → clr-100
+  @for $i from 1 through 10 {
+    $step: $i - $position;
+    $adjust: $step * 8; // controls light/dark spacing between tones
+    $tone-lightness: clamp-lightness($light - $adjust);
+    $tone-color: hsl($hue, $sat, $tone-lightness * 1%);
+
+    $colors: map-merge(
+      $colors,
+      (
+        "clr-base-#{($i * 10)}": $tone-color,
+      )
+    );
+  }
+
+  @return $colors;
+}
+
+// Example usage
+$clr--base-var: $clr--base;
+$palette: generate-palette($clr--base-var);
+
+// Output CSS variables
+:root {
+  @each $name, $value in $palette {
+    --#{$name}: #{$value};
+  }
+}
