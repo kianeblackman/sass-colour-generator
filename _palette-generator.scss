@@ -1,11 +1,15 @@
 /*
-Pallette Generator 
+Palette Generator 
 
 Generates clr-10 → clr-100
 Base color stays in its natural tone position
 Outputs as CSS variables
 ***********
 */
+
+@use "sass:map";
+@use "sass:math";
+@use "sass:color";
 
 @use "./variables" as *;
 
@@ -25,12 +29,12 @@ Outputs as CSS variables
   $colors: ();
 
   // Extract HSL channels
-  $hue: hue($base-color);
-  $sat: saturation($base-color);
-  $light: lightness($base-color) / 1%; // make unitless
+  $hue: color.channel($base-color, "hue", $space: hsl);
+  $sat: color.channel($base-color, "saturation", $space: hsl);
+  $light: math.div(color.channel($base-color, "lightness", $space: hsl), 1%); // unitless
 
   // Determine where the base color sits in 10 tones
-  $position: round((100 - $light) / 100 * 10);
+  $position: round(math.div(100 - $light, 100) * 10);
   $position: if($position < 1, 1, if($position > 10, 10, $position));
 
   // Generate tones clr-10 → clr-100
@@ -40,7 +44,8 @@ Outputs as CSS variables
     $tone-lightness: clamp-lightness($light - $adjust);
     $tone-color: hsl($hue, $sat, $tone-lightness * 1%);
 
-    $colors: map-merge(
+    // Merge tone into colors map
+    $colors: map.merge(
       $colors,
       (
         "clr-base-#{($i * 10)}": $tone-color,
