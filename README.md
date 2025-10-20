@@ -18,10 +18,7 @@ Perfect for quickling styling websites with a range of colors on the fly.
 
 ### Brand Base Color
 
-<div style="text-align:left;">
-  <div style="background-color:orange; width:40px; height:40px; border-radius:4px;"></div>
-  <span>base</span>
-</div>
+![#FFA500](https://placehold.co/15x15/FFA500/FFA500.png) `#FFA500`  
 
 ```scss
 // Set the case color in your variables
@@ -30,52 +27,21 @@ $clr--base: #FFA500;
 
 ### Brand Color Palette
 
-<div style="display:flex; gap:5px; align-items:flex-end;">
-  <div style="text-align:center;">
-    <div style="background-color:hsl(38.8235294118, 100%, 82%); width:40px; height:40px; border-radius:4px;"></div>
-    <span>10</span>
-  </div>
-  <div style="text-align:center;">
-    <div style="background-color:hsl(38.8235294118, 100%, 74%); width:40px; height:40px; border-radius:4px;"></div>
-    <span>20</span>
-  </div>
-  <div style="text-align:center;">
-    <div style="background-color:hsl(38.8235294118, 100%, 66%); width:40px; height:40px; border-radius:4px;"></div>
-    <span>30</span>
-  </div>
-  <div style="text-align:center;">
-    <div style="background-color:hsl(38.8235294118, 100%, 58%); width:40px; height:40px; border-radius:4px;"></div>
-    <span>40</span>
-  </div>
-  <div style="text-align:center;">
-    <div style="background-color:hsl(38.8235294118, 100%, 50%); width:40px; height:40px; border-radius:4px;"></div>
-    <span>50</span>
-  </div>
-  <div style="text-align:center;">
-    <div style="background-color:hsl(38.8235294118, 100%, 42%); width:40px; height:40px; border-radius:4px;"></div>
-    <span>60</span>
-  </div>
-  <div style="text-align:center;">
-    <div style="background-color:hsl(38.8235294118, 100%, 34%); width:40px; height:40px; border-radius:4px;"></div>
-    <span>70</span>
-  </div>
-  <div style="text-align:center;">
-    <div style="background-color:hsl(38.8235294118, 100%, 26%); width:40px; height:40px; border-radius:4px;"></div>
-    <span>80</span>
-  </div>
-  <div style="text-align:center;">
-    <div style="background-color:hsl(38.8235294118, 100%, 18%); width:40px; height:40px; border-radius:4px;"></div>
-    <span>90</span>
-  </div>
-  <div style="text-align:center;">
-    <div style="background-color:hsl(38.8235294118, 100%, 10%); width:40px; height:40px; border-radius:4px;"></div>
-    <span>100</span>
-  </div>
-</div>
+![#FFF1CC](https://placehold.co/15x15/FFF1CC/FFF1CC.png) `--clr-base-10`  
+![#FFE199](https://placehold.co/15x15/FFE199/FFE199.png) `--clr-base-20`  
+![#FFD066](https://placehold.co/15x15/FFD066/FFD066.png) `--clr-base-30`  
+![#FFBF33](https://placehold.co/15x15/FFBF33/FFBF33.png) `--clr-base-40`  
+![#FFAA00](https://placehold.co/15x15/FFAA00/FFAA00.png) `--clr-base-50`  
+![#E69400](https://placehold.co/15x15/E69400/E69400.png) `--clr-base-60`  
+![#CC7F00](https://placehold.co/15x15/CC7F00/CC7F00.png) `--clr-base-70`  
+![#B36600](https://placehold.co/15x15/B36600/B36600.png) `--clr-base-80`  
+![#994D00](https://placehold.co/15x15/994D00/994D00.png) `--clr-base-90`  
+![#803300](https://placehold.co/15x15/803300/803300.png) `--clr-base-100`
 
-```css
+
+
+```scss
 // CSS variables output
-
 --clr-base-10: hsl(38.8235294118, 100%, 82%);
 --clr-base-20: hsl(38.8235294118, 100%, 74%);
 --clr-base-30: hsl(38.8235294118, 100%, 66%);
